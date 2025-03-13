@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @EqualsAndHashCode
+@NoArgsConstructor
 @AllArgsConstructor
 public class Candidate {
 
     private int id;
     private String title;
     private String description;
-    private LocalDateTime creationDate;
+    private LocalDateTime creationDate = LocalDateTime.now();
 
 }
