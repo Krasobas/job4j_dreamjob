@@ -9,8 +9,6 @@ import java.util.*;
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
 
-    private static final MemoryCandidateRepository INSTANCE = new MemoryCandidateRepository();
-
     private int nextId = 1;
 
     private final Map<Integer, Candidate> candidates = new HashMap<>();
@@ -22,10 +20,6 @@ public class MemoryCandidateRepository implements CandidateRepository {
         save(new Candidate(0, "Petrov Petr Petrovich", "very good developer", LocalDateTime.now()));
         save(new Candidate(0, "Ivanov Ivan Ivanovich", "very good developer", LocalDateTime.now()));
         save(new Candidate(0, "Petrov Petr Petrovich", "very good developer", LocalDateTime.now()));
-    }
-
-    public static MemoryCandidateRepository getInstance() {
-        return INSTANCE;
     }
 
     @Override

@@ -9,8 +9,6 @@ import java.util.*;
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
 
-    private static final MemoryVacancyRepository INSTANCE = new MemoryVacancyRepository();
-
     private int nextId = 1;
 
     private final Map<Integer, Vacancy> vacancies = new HashMap<>();
@@ -22,10 +20,6 @@ public class MemoryVacancyRepository implements VacancyRepository {
         save(new Vacancy(0, "Middle Java Developer", "very good job", LocalDateTime.now()));
         save(new Vacancy(0, "Middle+ Java Developer", "very good job", LocalDateTime.now()));
         save(new Vacancy(0, "Senior Java Developer", "very good job", LocalDateTime.now()));
-    }
-
-    public static MemoryVacancyRepository getInstance() {
-        return INSTANCE;
     }
 
     @Override
