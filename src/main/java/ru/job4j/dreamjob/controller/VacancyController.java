@@ -12,9 +12,9 @@ import ru.job4j.dreamjob.model.Vacancy;
 import ru.job4j.dreamjob.service.CityService;
 import ru.job4j.dreamjob.service.VacancyService;
 
-@ThreadSafe
 @Controller
 @RequestMapping("/vacancies") /* Работать с кандидатами будем по URI /vacancies/** */
+@ThreadSafe
 @AllArgsConstructor
 public class VacancyController {
     @GuardedBy("this")
