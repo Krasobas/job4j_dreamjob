@@ -12,6 +12,7 @@ public class Candidate {
     private int id;
     private String title;
     private String description;
+    private int cityId;
     private LocalDateTime creationDate = LocalDateTime.now();
 
 }

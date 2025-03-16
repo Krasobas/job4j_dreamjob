@@ -13,6 +13,7 @@ public class Vacancy {
     private String title;
     private String description;
     private boolean visible;
+    private int cityId;
     private LocalDateTime creationDate = LocalDateTime.now();
 
     public boolean getVisible() {
