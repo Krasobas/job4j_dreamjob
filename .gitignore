@@ -31,3 +31,6 @@ job4j_dreamjob-master/.github
 
 target
 files
+
+testdb.mv.db
+testdb.trace.db
