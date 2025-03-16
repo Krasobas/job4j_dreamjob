@@ -2,6 +2,7 @@ package ru.job4j.dreamjob.repository;
 
 import net.jcip.annotations.GuardedBy;
 import net.jcip.annotations.ThreadSafe;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.City;
 
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Profile("ram")
 @ThreadSafe
 @Repository
 public class MemoryCityRepository implements CityRepository {

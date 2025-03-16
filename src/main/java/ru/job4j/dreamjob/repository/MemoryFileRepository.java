@@ -2,6 +2,7 @@ package ru.job4j.dreamjob.repository;
 
 import net.jcip.annotations.GuardedBy;
 import net.jcip.annotations.ThreadSafe;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.File;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Profile("ram")
 @ThreadSafe
 @Repository
 public class MemoryFileRepository implements FileRepository {
