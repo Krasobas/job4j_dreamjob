@@ -13,6 +13,7 @@ public class Candidate {
     private String title;
     private String description;
     private int cityId;
+    private int fileId;
     private LocalDateTime creationDate = LocalDateTime.now();
 
 }
