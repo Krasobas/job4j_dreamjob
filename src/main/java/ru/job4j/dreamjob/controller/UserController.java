@@ -11,26 +11,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.job4j.dreamjob.aspects.BindSessionUser;
 import ru.job4j.dreamjob.model.User;
 import ru.job4j.dreamjob.service.UserService;
 
 @Controller
 @RequestMapping("/users")
 @ThreadSafe
-@BindSessionUser
 @AllArgsConstructor
 public class UserController {
     @GuardedBy("this")
     private final UserService userService;
 
     @GetMapping("/login")
-    public String getLoginPage(Model model, HttpSession session) {
+    public String getLoginPage() {
         return "users/login";
     }
 
     @PostMapping("/login")
-    public String loginUser(@ModelAttribute User user, Model model, HttpServletRequest request, HttpSession session) {
+    public String loginUser(@ModelAttribute User user, Model model, HttpServletRequest request) {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (userOptional.isEmpty()) {
             model.addAttribute("error", "Почта или пароль введены неверно");
@@ -42,12 +40,12 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    String getRegistrationPage(Model model, HttpSession session) {
+    String getRegistrationPage() {
         return "users/register";
     }
 
     @PostMapping("/register")
-    String register(@ModelAttribute User user, Model model, HttpSession session) {
+    String register(@ModelAttribute User user, Model model) {
         var savedUser = userService.save(user);
         if (savedUser.isEmpty()) {
             model.addAttribute("message", "Пользователь с такой почтой уже существует");
@@ -57,7 +55,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(Model model, HttpSession session) {
+    public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/users/login";
     }
