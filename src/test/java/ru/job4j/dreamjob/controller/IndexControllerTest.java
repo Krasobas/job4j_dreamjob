@@ -19,6 +19,4 @@ class IndexControllerTest {
         assertThat(controller.getIndex()).isEqualTo("index");
     }
 
-
-
 }
